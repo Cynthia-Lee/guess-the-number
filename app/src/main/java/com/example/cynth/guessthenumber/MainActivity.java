@@ -65,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
         if(guessNum < answer) { // less than
             hintText.setText("The answer is greater than your guess!");
         } else { // greater than
-            hintText.setText("The answer is less than you guess!");
+            hintText.setText("The answer is less than your guess!");
         }
     }
 }
