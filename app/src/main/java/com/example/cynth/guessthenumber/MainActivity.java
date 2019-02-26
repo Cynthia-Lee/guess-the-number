@@ -27,11 +27,11 @@ public class MainActivity extends AppCompatActivity {
     TextView checkWrong;
     TextView hintText;
     TextView printRange;
-    int answer;
+    private int answer;
+    int min;
+    int max;
 
     public void setUpGame(View view) {
-        int min;
-        int max;
         String minS = lowerb.getText().toString();
         String maxS = upperb.getText().toString();
         min = Integer.parseInt(minS);
@@ -50,10 +50,12 @@ public class MainActivity extends AppCompatActivity {
         guessNum = Integer.parseInt(inputNum.getText().toString());
         checkWrong.setText("");
         hintText.setText("");
-        if(guessNum == answer) {
+        if (guessNum == answer) {
             // go to "You win!" screen
             Intent i = new Intent(getApplicationContext(), Win.class); // forwards us to Pick.class
             startActivity(i);
+        } else if (guessNum < min || guessNum > max) {
+            checkWrong.setText("Your guess was not in range!");
         } else {
             checkWrong.setText("Wrong number! Try again!");
         }
